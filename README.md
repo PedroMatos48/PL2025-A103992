@@ -1,6 +1,6 @@
 # PL2025-A103992
 
-Autor: Pedro de Paula Matos
+Autor: Pedro de Paula Matos (A103992)
 
 ![Foto](foto.jpg "foto")
 
