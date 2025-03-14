@@ -1,0 +1,32 @@
+[
+    {
+        "cod": "A23",
+        "nome": "\u00e1gua 0.5L",
+        "quant": 8,
+        "preco": 0.7
+    },
+    {
+        "cod": "B12",
+        "nome": "refrigerante 330ml",
+        "quant": 5,
+        "preco": 1.5
+    },
+    {
+        "cod": "C34",
+        "nome": "salgadinho",
+        "quant": 7,
+        "preco": 1.2
+    },
+    {
+        "cod": "D45",
+        "nome": "barra de chocolate",
+        "quant": 4,
+        "preco": 2.0
+    },
+    {
+        "cod": "E56",
+        "nome": "pacote de bolachas",
+        "quant": 6,
+        "preco": 1.3
+    }
+]
