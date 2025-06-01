@@ -1,0 +1,77 @@
+Árvore:
+('BinarioParaInteiro',
+ ('MAIN',
+  ('CONST', []),
+  ('VARS', [('string', ['bin']), ('integer', ['i', 'valor', 'potencia'])]),
+  ('STATEMENT_LIST',
+   [('WRITELN', [('STRING', 'Introduza uma string binária:')]),
+    ('READLN', 'bin'),
+    ('ASSIGN', 'valor', '0'),
+    ('ASSIGN', 'potencia', '1'),
+    ('FOR_D',
+     'i',
+     ('LENGTH', 'bin'),
+     '1',
+     [('STATEMENT_LIST',
+       [('IF',
+         ('=', ('bin', 'i'), "'1'"),
+         [('ASSIGN', 'valor', ('ADD', 'valor', 'potencia'))]),
+        ('ASSIGN', 'potencia', ('MUL', 'potencia', '2'))])]),
+    ('WRITELN',
+     [('STRING', 'O valor inteiro correspondente é: '), ('VAR', 'valor')])])))
+
+Resultado:
+PUSHS ""
+PUSHI 0
+PUSHI 0
+PUSHI 0
+START:
+PUSHS "Introduza uma string binária:"
+WRITES
+WRITELN
+READ
+STOREG 0
+PUSHI 0
+STOREG 2
+PUSHI 1
+STOREG 3
+PUSHG 0
+STRLEN
+STOREG 1
+L6FOR:
+PUSHG 1
+PUSHI 1
+SUPEQ
+JZ L6ENDFOR
+PUSHG 0
+PUSHG 1
+PUSHI -1
+ADD
+CHARAT
+PUSHS "1"
+CHRCODE
+EQUAL
+JZ L6ELSE
+PUSHG 2
+PUSHG 3
+ADD
+STOREG 2
+JUMP L6END
+L6ELSE:
+L6END:
+PUSHG 3
+PUSHI 2
+MUL
+STOREG 3
+PUSHG 1
+PUSHI 1
+SUB
+STOREG 1
+JUMP L6FOR
+L6ENDFOR:
+PUSHS "O valor inteiro correspondente é: "
+WRITES
+PUSHG 2
+WRITEI
+WRITELN
+STOP

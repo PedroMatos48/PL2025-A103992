@@ -1,0 +1,105 @@
+Árvore:
+('VerificaPrimeiraVogal',
+ ('MAIN',
+  ('CONST', []),
+  ('VARS', [('string', ['nome']), ('char', ['primeiro'])]),
+  ('STATEMENT_LIST',
+   [('WRITELN', [('STRING', 'Digite seu nome:')]),
+    ('READLN', 'nome'),
+    ('IF',
+     ('=', ('LENGTH', 'nome'), '0'),
+     [('STATEMENT_LIST',
+       [('WRITELN',
+         [('STRING', 'String vazia; nenhum carácter a verificar.')])])],
+     'ELSE',
+     [('STATEMENT_LIST',
+       [('ASSIGN', 'primeiro', ('nome', '1')),
+        ('IF',
+         ('OR',
+          ('OR',
+           ('OR',
+            ('OR', ('=', 'primeiro', "'A'"), ('=', 'primeiro', "'E'")),
+            ('=', 'primeiro', "'I'")),
+           ('=', 'primeiro', "'O'")),
+          ('=', 'primeiro', "'U'")),
+         [('WRITELN',
+           [('STRING', 'O primeiro carácter é uma vogal ('),
+            ('VAR', ('nome', '1')),
+            ('STRING', ').')])],
+         'ELSE',
+         [('WRITELN',
+           [('STRING', 'O primeiro carácter não é uma vogal ('),
+            ('VAR', ('nome', '1')),
+            ('STRING', ').')])])])])])))
+
+Resultado:
+PUSHS ""
+PUSHS ""
+START:
+PUSHS "Digite seu nome:"
+WRITES
+WRITELN
+READ
+STOREG 0
+PUSHG 0
+STRLEN
+PUSHI 0
+EQUAL
+JZ L4ELSE
+PUSHS "String vazia; nenhum carácter a verificar."
+WRITES
+WRITELN
+JUMP L4END
+L4ELSE:
+PUSHG 0
+PUSHI 1
+PUSHI -1
+ADD
+CHARAT
+STOREG 1
+PUSHG 1
+PUSHS "A"
+CHRCODE
+EQUAL
+PUSHG 1
+PUSHS "E"
+CHRCODE
+EQUAL
+OR
+PUSHG 1
+PUSHS "I"
+CHRCODE
+EQUAL
+OR
+PUSHG 1
+PUSHS "O"
+CHRCODE
+EQUAL
+OR
+PUSHG 1
+PUSHS "U"
+CHRCODE
+EQUAL
+OR
+JZ L7ELSE
+PUSHS "O primeiro carácter é uma vogal ("
+WRITES
+PUSHI 1
+PUSHG 0
+WRITES
+PUSHS ")."
+WRITES
+WRITELN
+JUMP L7END
+L7ELSE:
+PUSHS "O primeiro carácter não é uma vogal ("
+WRITES
+PUSHI 1
+PUSHG 0
+WRITES
+PUSHS ")."
+WRITES
+WRITELN
+L7END:
+L4END:
+STOP

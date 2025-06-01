@@ -1,0 +1,83 @@
+Árvore:
+('Maior3',
+ ('MAIN',
+  ('CONST', []),
+  ('VARS', [('Integer', ['num1', 'num2', 'num3', 'maior'])]),
+  ('STATEMENT_LIST',
+   [('WRITE', [('STRING', 'Introduza o primeiro número: ')]),
+    ('READLN', 'num1'),
+    ('WRITE', [('STRING', 'Introduza o segundo número: ')]),
+    ('READLN', 'num2'),
+    ('WRITE', [('STRING', 'Introduza o terceiro número: ')]),
+    ('READLN', 'num3'),
+    ('IF',
+     ('>', 'num1', 'num2'),
+     [('IF',
+       ('>', 'num1', 'num3'),
+       [('ASSIGN', 'maior', 'num1')],
+       'ELSE',
+       [('ASSIGN', 'maior', 'num3')])],
+     'ELSE',
+     [('IF',
+       ('>', 'num2', 'num3'),
+       [('ASSIGN', 'maior', 'num2')],
+       'ELSE',
+       [('ASSIGN', 'maior', 'num3')])]),
+    ('WRITELN', [('STRING', 'O maior é: '), ('VAR', 'maior')])])))
+
+Resultado:
+PUSHI 0
+PUSHI 0
+PUSHI 0
+PUSHI 0
+START:
+PUSHS "Introduza o primeiro número: "
+WRITES
+READ
+ATOI
+STOREG 0
+PUSHS "Introduza o segundo número: "
+WRITES
+READ
+ATOI
+STOREG 1
+PUSHS "Introduza o terceiro número: "
+WRITES
+READ
+ATOI
+STOREG 2
+PUSHG 0
+PUSHG 1
+SUP
+JZ L8ELSE
+PUSHG 0
+PUSHG 2
+SUP
+JZ L8ELSE
+PUSHG 0
+STOREG 3
+JUMP L8END
+L8ELSE:
+PUSHG 2
+STOREG 3
+L8END:
+JUMP L8END
+L8ELSE:
+PUSHG 1
+PUSHG 2
+SUP
+JZ L11ELSE
+PUSHG 1
+STOREG 3
+JUMP L11END
+L11ELSE:
+PUSHG 2
+STOREG 3
+L11END:
+L8END:
+PUSHS "O maior é: "
+WRITES
+PUSHG 3
+WRITEI
+WRITELN
+STOP

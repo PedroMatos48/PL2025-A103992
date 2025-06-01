@@ -1,0 +1,78 @@
+Árvore:
+('NumeroPrimo',
+ ('MAIN',
+  ('CONST', []),
+  ('VARS', [('integer', ['num', 'i']), ('boolean', ['primo'])]),
+  ('STATEMENT_LIST',
+   [('WRITELN', [('STRING', 'Introduza um número inteiro positivo:')]),
+    ('READLN', 'num'),
+    ('ASSIGN', 'primo', 'true'),
+    ('ASSIGN', 'i', '2'),
+    ('WHILE',
+     ('AND', ('<=', 'i', ('DIV', 'num', '2')), 'primo'),
+     [('STATEMENT_LIST',
+       [('IF', ('=', ('MOD', 'num', 'i'), '0'), [('ASSIGN', 'primo', 'false')]),
+        ('ASSIGN', 'i', ('ADD', 'i', '1'))])]),
+    ('IF',
+     'primo',
+     [('WRITELN', [('VAR', 'num'), ('STRING', ' é um número primo')])],
+     'ELSE',
+     [('WRITELN', [('VAR', 'num'), ('STRING', ' não é um número primo')])])])))
+
+Resultado:
+PUSHI 0
+PUSHI 0
+PUSHI 0
+START:
+PUSHS "Introduza um número inteiro positivo:"
+WRITES
+WRITELN
+READ
+ATOI
+STOREG 0
+PUSHI 1
+STOREG 2
+PUSHI 2
+STOREG 1
+L6START:
+PUSHG 1
+PUSHG 0
+PUSHI 2
+DIV
+INFEQ
+PUSHG 2
+AND
+JZ L6END
+PUSHG 0
+PUSHG 1
+MOD
+PUSHI 0
+EQUAL
+JZ L6ELSE
+PUSHI 0
+STOREG 2
+JUMP L6END
+L6ELSE:
+L6END:
+PUSHG 1
+PUSHI 1
+ADD
+STOREG 1
+JUMP L6START
+L6END:
+PUSHG 2
+JZ L11ELSE
+PUSHG 0
+WRITEI
+PUSHS " é um número primo"
+WRITES
+WRITELN
+JUMP L11END
+L11ELSE:
+PUSHG 0
+WRITEI
+PUSHS " não é um número primo"
+WRITES
+WRITELN
+L11END:
+STOP

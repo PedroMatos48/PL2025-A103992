@@ -1,0 +1,56 @@
+Árvore:
+('Fatorial',
+ ('MAIN',
+  ('CONST', []),
+  ('VARS', [('integer', ['n', 'i', 'fat'])]),
+  ('STATEMENT_LIST',
+   [('WRITELN', [('STRING', 'Introduza um número inteiro positivo:')]),
+    ('READLN', 'n'),
+    ('ASSIGN', 'fat', '1'),
+    ('FOR', 'i', '1', 'n', [('ASSIGN', 'fat', ('MUL', 'fat', 'i'))]),
+    ('WRITELN',
+     [('STRING', 'Fatorial de '),
+      ('VAR', 'n'),
+      ('STRING', ': '),
+      ('VAR', 'fat')])])))
+
+Resultado:
+PUSHI 0
+PUSHI 0
+PUSHI 0
+START:
+PUSHS "Introduza um número inteiro positivo:"
+WRITES
+WRITELN
+READ
+ATOI
+STOREG 0
+PUSHI 1
+STOREG 2
+PUSHI 1
+STOREG 1
+L5FOR:
+PUSHG 1
+PUSHG 0
+INFEQ
+JZ L5ENDFOR
+PUSHG 2
+PUSHG 1
+MUL
+STOREG 2
+PUSHG 1
+PUSHI 1
+ADD
+STOREG 1
+JUMP L5FOR
+L5ENDFOR:
+PUSHS "Fatorial de "
+WRITES
+PUSHG 0
+WRITEI
+PUSHS ": "
+WRITES
+PUSHG 2
+WRITEI
+WRITELN
+STOP

@@ -1,0 +1,13 @@
+Árvore:
+('HelloWorld',
+ ('MAIN',
+  ('CONST', []),
+  ('VARS', []),
+  ('STATEMENT_LIST', [('WRITELN', [('STRING', 'Ola, Mundo!')])])))
+
+Resultado:
+START:
+PUSHS "Ola, Mundo!"
+WRITES
+WRITELN
+STOP

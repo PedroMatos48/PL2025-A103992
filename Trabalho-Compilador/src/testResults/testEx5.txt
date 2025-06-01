@@ -1,0 +1,63 @@
+Árvore:
+('SomaArray',
+ ('MAIN',
+  ('CONST', []),
+  ('VARS',
+   [(('ARRAY', '1', '5', 'integer'), ['numeros']), ('integer', ['i', 'soma'])]),
+  ('STATEMENT_LIST',
+   [('ASSIGN', 'soma', '0'),
+    ('WRITELN', [('STRING', 'Introduza 5 números inteiros:')]),
+    ('FOR',
+     'i',
+     '1',
+     '5',
+     [('STATEMENT_LIST',
+       [('READLN', ('numeros', 'i')),
+        ('ASSIGN', 'soma', ('ADD', 'soma', ('numeros', 'i')))])]),
+    ('WRITELN', [('STRING', 'A soma dos números é: '), ('VAR', 'soma')])])))
+
+Resultado:
+PUSHI 5
+ALLOCN
+PUSHI 0
+PUSHI 0
+START:
+PUSHI 0
+STOREG 2
+PUSHS "Introduza 5 números inteiros:"
+WRITES
+WRITELN
+PUSHI 1
+STOREG 1
+L4FOR:
+PUSHG 1
+PUSHI 5
+INFEQ
+JZ L4ENDFOR
+PUSHG 0
+PUSHG 1
+PUSHI -1
+ADD
+READ
+ATOI
+STOREN
+PUSHG 2
+PUSHG 0
+PUSHG 1
+PUSHI -1
+ADD
+LOADN
+ADD
+STOREG 2
+PUSHG 1
+PUSHI 1
+ADD
+STOREG 1
+JUMP L4FOR
+L4ENDFOR:
+PUSHS "A soma dos números é: "
+WRITES
+PUSHG 2
+WRITEI
+WRITELN
+STOP
